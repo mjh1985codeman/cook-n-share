@@ -9,16 +9,22 @@ const AppNavbar = () => {
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
-          <Nav className="ml-auto">
-            <Nav.Link as={Link} to="/Home">
-              Home
-            </Nav.Link>
-            <Nav.Link as={Link} to="/Login">
-              Login
-            </Nav.Link>
-            <Nav.Link as={Link} to="/SignUp">
-              Sign Up
-            </Nav.Link>
+          <Nav className="justify-content-center">
+            <Nav.Item>
+              <Nav.Link as={Link} to="/About">
+                About
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={Link} to="/Login">
+                Login
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={Link} to="/SignUp">
+                Sign Up
+              </Nav.Link>
+            </Nav.Item>
           </Nav>
         </Container>
       </Navbar>
