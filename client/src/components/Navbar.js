@@ -16,7 +16,6 @@ const AppNavbar = () => {
                 About
               </Nav.Link>
             </Nav.Item>
-
             <Nav.Item>
               <Nav.Link as={Link} to="/Login">
                 Login
@@ -30,9 +29,7 @@ const AppNavbar = () => {
             {/*Logout Conditionally Rendered if user is logged in*/}
             {Auth.loggedIn() ? (
               <Nav.Item>
-                <Nav.Link as={Link} to="/">
-                  Logout
-                </Nav.Link>
+                <Nav.Link onClick={() => Auth.logout()}>Logout</Nav.Link>
               </Nav.Item>
             ) : null}
           </Nav>
