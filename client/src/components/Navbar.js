@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Auth from "../utils/auth";
-import logo from "../assets/croppedLogo.png";
+import logo from "../assets/FinalLogo.png";
 
 const AppNavbar = () => {
   // set modal display state
