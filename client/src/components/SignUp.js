@@ -69,7 +69,8 @@ const SignUp = () => {
             show={showAlert}
             variant="danger"
           >
-            There was a problem with signing up! Please try again!
+            There was an Error. Please note UN and Email must be unique. Please
+            Try again!
           </Alert>
           <Form.Group>
             <Form.Label htmlFor="username">Username</Form.Label>
@@ -116,7 +117,7 @@ const SignUp = () => {
             type="submit"
             variant="contained"
           >
-            submit
+            Submit
           </button>
         </Form>
       </div>
