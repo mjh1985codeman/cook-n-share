@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Auth from "../utils/auth";
-import logo from "../assets/Cook-N-Share.png";
+import logo from "../assets/FinalLogo.png";
 
 const AppNavbar = () => {
   // set modal display state
@@ -10,9 +10,9 @@ const AppNavbar = () => {
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
+        <img src={logo} alt="Logo" />
         <Container fluid>
           <Nav className="justify-content-center">
-            <img src={logo} alt="Logo" />
             <Nav.Item>
               <Nav.Link as={Link} to="/">
                 Home
