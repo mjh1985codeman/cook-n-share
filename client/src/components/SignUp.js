@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Form, Alert } from "react-bootstrap";
-import Navbar from "./Navbar";
 
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
@@ -58,7 +57,6 @@ const SignUp = () => {
   };
   return (
     <>
-      <Navbar></Navbar>
       <div className="login-style">
         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
           <Alert

@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
+import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
@@ -27,6 +28,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
+          <Navbar></Navbar>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/Login" component={Login} />

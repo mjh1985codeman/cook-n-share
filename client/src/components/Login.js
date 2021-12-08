@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
 import { Form, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/react-hooks";
 import Auth from "../utils/auth";
@@ -44,7 +43,6 @@ const Login = () => {
 
   return (
     <>
-      <Navbar></Navbar>
       <div className="login-style">
         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
           <Alert
