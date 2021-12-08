@@ -24,6 +24,7 @@ const AppNavbar = () => {
                   Search
                 </Nav.Link>
               </Nav.Item>
+              {/*Conditionally Rendered if user is NOT logged in*/}
               {!Auth.loggedIn() ? (
                 <Nav.Item>
                   <Nav.Link as={Link} to="/Login">
@@ -31,6 +32,7 @@ const AppNavbar = () => {
                   </Nav.Link>
                 </Nav.Item>
               ) : null}
+              {/*Conditionally Rendered if user is NOT logged in*/}
               {!Auth.loggedIn() ? (
                 <Nav.Item>
                   <Nav.Link as={Link} to="/SignUp">
@@ -38,6 +40,7 @@ const AppNavbar = () => {
                   </Nav.Link>
                 </Nav.Item>
               ) : null}
+              {/*Conditionally Rendered if user is logged in*/}
               {Auth.loggedIn() ? (
                 <Nav.Item>
                   <Nav.Link as={Link} to="/Creations">
@@ -45,6 +48,7 @@ const AppNavbar = () => {
                   </Nav.Link>
                 </Nav.Item>
               ) : null}
+              {/*Conditionally Rendered if user is logged in*/}
               {Auth.loggedIn() ? (
                 <Nav.Item>
                   <Nav.Link as={Link} to="/Saved">
@@ -52,7 +56,7 @@ const AppNavbar = () => {
                   </Nav.Link>
                 </Nav.Item>
               ) : null}
-              {/*Logout Conditionally Rendered if user is logged in*/}
+              {/*Conditionally Rendered if user is logged in*/}
               {Auth.loggedIn() ? (
                 <Nav.Item>
                   <Nav.Link onClick={() => Auth.logout()}>Logout</Nav.Link>
