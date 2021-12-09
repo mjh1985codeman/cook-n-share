@@ -20,8 +20,8 @@ const AppNavbar = () => {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link as={Link} to="/Search">
-                  Search
+                <Nav.Link as={Link} to="/Browse">
+                  Browse
                 </Nav.Link>
               </Nav.Item>
               {/*Conditionally Rendered if user is NOT logged in*/}
@@ -52,7 +52,7 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <Nav.Item>
                   <Nav.Link as={Link} to="/Saved">
-                    Saved Recipes
+                    Saved Creations
                   </Nav.Link>
                 </Nav.Item>
               ) : null}

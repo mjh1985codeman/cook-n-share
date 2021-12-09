@@ -7,6 +7,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+      trim: true,
     },
     email: {
       type: String,
@@ -17,7 +18,26 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
+      minlength: 4,
     },
+    creations: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Creation",
+      },
+    ],
+    reviews: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Review",
+      },
+    ],
+    followers: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   // set this to use virtual below
   {
@@ -41,6 +61,10 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+
+userSchema.virtual("followerCount").get(function () {
+  return this.followers.length;
+});
 
 const User = model("User", userSchema);
 

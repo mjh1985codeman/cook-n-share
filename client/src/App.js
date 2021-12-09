@@ -6,8 +6,8 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import SavedRecipes from "./components/SavedRecipes";
-import Search from "./components/Search";
+import SavedCreations from "./components/SavedCreations";
+import Browse from "./components/Browse";
 import YourCreations from "./components/YourCreations";
 
 const client = new ApolloClient({
@@ -33,9 +33,9 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/Login" component={Login} />
             <Route exact path="/SignUp" component={SignUp} />
-            <Route exact path="/Saved" component={SavedRecipes} />
+            <Route exact path="/Saved" component={SavedCreations} />
             <Route exact path="/Creations" component={YourCreations} />
-            <Route exact path="/Search" component={Search} />
+            <Route exact path="/Browse" component={Browse} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
         </>
