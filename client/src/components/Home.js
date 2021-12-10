@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       <Container>
-        <h1>This is the Home Page!</h1>
+        <h1>"Cook it, Share it, Love it"</h1>
       </Container>
     </>
   );
