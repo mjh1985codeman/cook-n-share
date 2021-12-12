@@ -42,7 +42,15 @@ function App() {
               path="/Creations/NewCreation"
               component={NewCreation}
             />
-            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
+            <Route
+              render={() => (
+                <h1 className="display-2">
+                  Oh My. . .You're lost. Try not to make up url routes because
+                  you have no idea where you'll end up! Play it safe and click
+                  on a link in the NavBar to get back on track.
+                </h1>
+              )}
+            />
           </Switch>
         </>
       </Router>

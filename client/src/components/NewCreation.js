@@ -9,11 +9,21 @@ Create a Creation (Recipe)
 
  */
 import React from "react";
+import Auth from "../utils/auth";
 
 const NewCreation = () => {
   return (
     <>
-      <h1>This is where I'm going to create a new Creation!</h1>
+      {/*The user must be logged in order to create something*/}
+      {Auth.loggedIn() ? (
+        <h1>This is where I'm going to create a new Creation!</h1>
+      ) : null}
+      {/*Conditionally Rendered if user is NOT logged in*/}
+      {!Auth.loggedIn() ? (
+        <h1>
+          Come on now. . .Login or Sign up in order to create something awesome!
+        </h1>
+      ) : null}
     </>
   );
 };
