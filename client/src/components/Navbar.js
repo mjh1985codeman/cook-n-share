@@ -24,7 +24,7 @@ const AppNavbar = () => {
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link as={Link} to="Browse">
+                  <Nav.Link as={Link} to="/Browse">
                     Browse
                   </Nav.Link>
                 </Nav.Item>

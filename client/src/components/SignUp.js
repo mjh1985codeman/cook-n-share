@@ -95,7 +95,7 @@ const SignUp = () => {
           <Form.Group>
             <Form.Label htmlFor="password">Password</Form.Label>
             <Form.Control
-              type="text"
+              type="password"
               placeholder="Password"
               name="password"
               onChange={handleInputChange}

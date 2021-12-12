@@ -9,6 +9,7 @@ import SignUp from "./components/SignUp";
 import SavedCreations from "./components/SavedCreations";
 import Browse from "./components/Browse";
 import YourCreations from "./components/YourCreations";
+import NewCreation from "./components/NewCreation";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -36,6 +37,11 @@ function App() {
             <Route exact path="/Saved" component={SavedCreations} />
             <Route exact path="/Creations" component={YourCreations} />
             <Route exact path="/Browse" component={Browse} />
+            <Route
+              exact
+              path="/Creations/NewCreation"
+              component={NewCreation}
+            />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
         </>
