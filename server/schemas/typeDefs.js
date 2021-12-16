@@ -14,8 +14,8 @@ const typeDefs = gql`
   type Creation {
     _id: ID
     creationText: String
-    createdAt: String
     username: String
+    createdAt: String
     reviewCount: Int
     reviews: [Review]
   }

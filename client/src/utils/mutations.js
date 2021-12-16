@@ -23,3 +23,18 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_CREATION = gql`
+  mutation addCreation($username: String!, $creationText: String!) {
+    addCreation(username: $username, creationText: $creationText) {
+      _id
+      creationText
+      username
+      createdAt
+      reviewCount
+      reviews {
+        _id
+      }
+    }
+  }
+`;
