@@ -1,5 +1,6 @@
 import React from "react";
 import Auth from "../utils/auth";
+import CreationCard from "./CreationCard";
 
 const SavedCreations = () => {
   return (
@@ -10,10 +11,14 @@ const SavedCreations = () => {
         </h1>
       ) : null}
       {Auth.loggedIn() ? (
-        <h1>
-          This is the Saved Creations Page! Where a list of creations that the
-          user has saved will appear.
-        </h1>
+        <>
+          <h1>
+            This is the Saved Creations Page! Where a list of creations that the
+            user has saved will appear.
+          </h1>
+          {/*Creation Card Component*/}
+          <CreationCard></CreationCard>
+        </>
       ) : null}
     </>
   );
