@@ -26,6 +26,7 @@ const CreationCard = () => {
             </Card.Text>
             <Button variant="primary">Delete</Button>
             <Button variant="primary">Share</Button>
+            <Button variant="primary">Review</Button>
           </Card.Body>
         </Card>
       </Container>
