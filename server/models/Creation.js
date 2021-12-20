@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema } = require("mongoose");
 const reviewSchema = require("./Review");
 const dateFormat = require("../utils/dateFormat");
 
@@ -6,7 +6,7 @@ const creationSchema = new Schema(
   {
     creationText: {
       type: String,
-      required: "You need to leave a creation!",
+      required: true,
       minlength: 1,
       maxlength: 500000,
     },
@@ -19,7 +19,6 @@ const creationSchema = new Schema(
       type: String,
       required: true,
     },
-    reviews: [reviewSchema],
   },
   {
     toJSON: {
@@ -32,6 +31,6 @@ reviewSchema.virtual("reviewCount").get(function () {
   return this.reviews.length;
 });
 
-const Creation = model("Creation", creationSchema);
+const Creation = ("Creation", creationSchema);
 
 module.exports = Creation;

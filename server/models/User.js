@@ -1,6 +1,9 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcryptjs");
 
+// //import creationSchema from Creation.js
+const creationSchema = require("./Creation");
+
 const userSchema = new Schema(
   {
     username: {
@@ -20,24 +23,8 @@ const userSchema = new Schema(
       required: true,
       minlength: 4,
     },
-    creations: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Creation",
-      },
-    ],
-    reviews: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Review",
-      },
-    ],
-    followers: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
+    userCreations: [creationSchema],
+    savedCreations: [creationSchema],
   },
   // set this to use virtual below
   {
@@ -62,8 +49,8 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-userSchema.virtual("followerCount").get(function () {
-  return this.followers.length;
+userSchema.virtual("creationCount").get(function () {
+  return this.userCreations.length;
 });
 
 const User = model("User", userSchema);

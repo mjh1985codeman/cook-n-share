@@ -18,6 +18,16 @@ export const ADD_USER = gql`
         _id
         username
         email
+        userCreations {
+          creationText
+          username
+          createdAt
+        }
+        savedCreations {
+          creationText
+          username
+          createdAt
+        }
       }
       token
     }
@@ -31,10 +41,6 @@ export const ADD_CREATION = gql`
       creationText
       username
       createdAt
-      reviewCount
-      reviews {
-        _id
-      }
     }
   }
 `;
