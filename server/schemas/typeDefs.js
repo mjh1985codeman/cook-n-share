@@ -11,8 +11,11 @@ const typeDefs = gql`
 
   type Creation {
     _id: ID!
-    creationText: String!
     username: String
+    creationTitle: String
+    ingredients: String
+    creationDescription: String
+    directions: String
     createdAt: String
   }
 
@@ -28,6 +31,12 @@ const typeDefs = gql`
   type Mutation {
     login(username: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addCreation(
+      creationTitle: String!
+      ingredients: String!
+      creationDescription: String!
+      directions: String!
+    ): Creation
   }
 `;
 

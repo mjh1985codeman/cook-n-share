@@ -23,8 +23,18 @@ const userSchema = new Schema(
       required: true,
       minlength: 4,
     },
-    userCreations: [creationSchema],
-    savedCreations: [creationSchema],
+    userCreations: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Creation",
+      },
+    ],
+    savedCreations: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Creation",
+      },
+    ],
   },
   // set this to use virtual below
   {
