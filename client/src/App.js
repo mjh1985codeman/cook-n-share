@@ -8,7 +8,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import SavedCreations from "./components/SavedCreations";
 import Browse from "./components/Browse";
-import YourCreations from "./components/YourCreations";
+import UserCreations from "./components/UserCreations";
 import NewCreation from "./components/NewCreation";
 
 const client = new ApolloClient({
@@ -35,7 +35,7 @@ function App() {
             <Route exact path="/Login" component={Login} />
             <Route exact path="/SignUp" component={SignUp} />
             <Route exact path="/Saved" component={SavedCreations} />
-            <Route exact path="/Creations" component={YourCreations} />
+            <Route exact path="/Creations" component={UserCreations} />
             <Route exact path="/Browse" component={Browse} />
             <Route
               exact

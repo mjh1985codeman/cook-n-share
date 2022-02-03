@@ -19,13 +19,17 @@ export const ADD_USER = gql`
         username
         email
         userCreations {
-          creationText
-          username
+          creationTitle
+          ingredients
+          creationDescription
+          directions
           createdAt
         }
         savedCreations {
-          creationText
-          username
+          creationTitle
+          ingredients
+          creationDescription
+          directions
           createdAt
         }
       }
@@ -35,11 +39,18 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_CREATION = gql`
-  mutation addCreation($creationText: String!) {
+  mutation addCreation(
+    $creationTitle: String!
+    $ingredients: String!
+    $creationDescription: String!
+    $directions: String!
+  ) {
     addCreation(creationText: $creationText) {
       _id
-      creationText
-      username
+      creationTitle
+      ingredients
+      creationDescription
+      directions
       createdAt
     }
   }

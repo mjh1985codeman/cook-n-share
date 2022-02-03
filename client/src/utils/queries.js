@@ -8,15 +8,33 @@ export const GET_ME = gql`
       email
       creationCount
       userCreations {
-        creationText
-        username
+        creationTitle
+        ingredients
+        creationDescription
+        directions
         createdAt
       }
       savedCreations {
-        creationText
-        username
+        creationTitle
+        ingredients
+        creationDescription
+        directions
         createdAt
       }
+    }
+  }
+`;
+
+export const GET_CREATIONS = gql`
+  {
+    creations {
+      _id
+      username
+      creationTitle
+      ingredients
+      creationDescription
+      directions
+      createdAt
     }
   }
 `;

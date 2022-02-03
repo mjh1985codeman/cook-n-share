@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
-const YourCreations = () => {
+const UserCreations = () => {
   return (
     <>
       {!Auth.loggedIn() ? (
@@ -20,7 +20,7 @@ const YourCreations = () => {
       ) : null}
       {Auth.loggedIn() ? (
         <>
-          <h1>This is the Your Creations Page!</h1>
+          <h1>This is the Users Page!</h1>
           <Button
             variant="contained"
             component={Link}
@@ -37,4 +37,4 @@ const YourCreations = () => {
   );
 };
 
-export default YourCreations;
+export default UserCreations;

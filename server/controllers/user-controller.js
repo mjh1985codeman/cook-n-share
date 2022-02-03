@@ -1,5 +1,5 @@
 // import user model
-const { User } = require("../models");
+const { User, Creation } = require("../models");
 // import sign token function from auth
 const { signToken } = require("../utils/auth");
 
@@ -49,6 +49,4 @@ module.exports = {
     const token = signToken(user);
     res.json({ token, user });
   },
-  // save a book to a user's `savedBooks` field by adding it to the set (to prevent duplicates)
-  // user comes from `req.user` created in the auth middleware function
 };
