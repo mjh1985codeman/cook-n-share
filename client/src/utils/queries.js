@@ -26,8 +26,8 @@ export const GET_ME = gql`
 `;
 
 export const GET_CREATIONS = gql`
-  {
-    creations {
+  query creations($username: String) {
+    creations(username: $username) {
       _id
       username
       creationTitle
