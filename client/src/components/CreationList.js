@@ -1,13 +1,13 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-const CreationList = ({ creations, creationTitle }) => {
+const CreationList = ({ creations }) => {
   if (!creations.length) {
     return <h3>No Creations Yet</h3>;
   }
 
   return (
-    <div>
+    <div className="creation-list">
       <Container>
         {creations &&
           creations.map((creation) => (
