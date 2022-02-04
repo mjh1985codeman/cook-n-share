@@ -7,6 +7,8 @@ import {
   createHttpLink,
 } from "@apollo/client";
 
+import { setContext } from "@apollo/client/link/context";
+
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -16,17 +18,26 @@ import Browse from "./components/Browse";
 import UserCreations from "./components/UserCreations";
 import NewCreation from "./components/NewCreation";
 
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
 //establish a new link to the GraphQL server at its /graphql endpoint
 //with createHttpLink() from our apollo/client npm.
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: "/graphql",
 });
 
 //we use the ApolloClient() constructor to instantiate the Apollo Client instance
 // and create the connection to the API endpoint.
 const client = new ApolloClient({
-  link: httpLink,
-  //instantiate a new cache object using new InMemoryCache()
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 

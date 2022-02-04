@@ -12,10 +12,10 @@ const CreationList = ({ creations }) => {
         {creations &&
           creations.map((creation) => (
             <div key={creation._id} className="card mb-3">
-              <p className="card-header">
+              <div className="card-header">
                 <h3>{creation.creationTitle}</h3>
                 {creation.username} created on {creation.createdAt}
-              </p>
+              </div>
               <div className="card-body">
                 <p>{creation.ingredients}</p>
                 <p>{creation.creationDescription}</p>

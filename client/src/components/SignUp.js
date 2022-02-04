@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Alert } from "react-bootstrap";
+import { Form, Alert, Container } from "react-bootstrap";
 
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
@@ -57,68 +57,70 @@ const SignUp = () => {
   };
   return (
     <>
-      <div className="login-style">
-        <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-          <Alert
-            id="signUp-alert"
-            className="login-style"
-            dismissable
-            onClose={() => setShowAlert(false)}
-            show={showAlert}
-            variant="danger"
-          >
-            There was an Error. Please note UN and Email must be unique. Please
-            Try again!
-          </Alert>
-          <Form.Group>
-            <Form.Label htmlFor="username">Username</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Username"
-              name="username"
-              onChange={handleInputChange}
-              value={userFormData.username}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="email">Email</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Email"
-              name="email"
-              onChange={handleInputChange}
-              value={userFormData.email}
-              required
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="password">Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              name="password"
-              onChange={handleInputChange}
-              value={userFormData.password}
-              required
-            />
-          </Form.Group>
+      <Container>
+        <div className="login-style">
+          <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+            <Alert
+              id="signUp-alert"
+              className="login-style"
+              dismissable
+              onClose={() => setShowAlert(false)}
+              show={showAlert}
+              variant="danger"
+            >
+              There was an Error. Please note UN and Email must be unique.
+              Please Try again!
+            </Alert>
+            <Form.Group>
+              <Form.Label htmlFor="username">Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Username"
+                name="username"
+                onChange={handleInputChange}
+                value={userFormData.username}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="email">Email</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Email"
+                name="email"
+                onChange={handleInputChange}
+                value={userFormData.email}
+                required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="password">Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={handleInputChange}
+                value={userFormData.password}
+                required
+              />
+            </Form.Group>
 
-          <button
-            disabled={
-              !(
-                userFormData.username &&
-                userFormData.email &&
-                userFormData.password
-              )
-            }
-            type="submit"
-            variant="contained"
-          >
-            Submit
-          </button>
-        </Form>
-      </div>
+            <button
+              disabled={
+                !(
+                  userFormData.username &&
+                  userFormData.email &&
+                  userFormData.password
+                )
+              }
+              type="submit"
+              variant="contained"
+            >
+              Submit
+            </button>
+          </Form>
+        </div>
+      </Container>
     </>
   );
 };

@@ -22,6 +22,9 @@ const typeDefs = gql`
   type Query {
     me: User
     creations(username: String): [Creation]
+    user(username: String!): User
+    users: [User]
+    creation(_id: ID!): Creation
   }
 
   type Auth {

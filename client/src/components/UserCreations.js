@@ -7,9 +7,17 @@ PseudoCode:
 import React from "react";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { GET_ME } from "../utils/queries";
 import Auth from "../utils/auth";
+import { Container } from "react-bootstrap";
 
 const UserCreations = () => {
+  const { data } = useQuery(GET_ME);
+  const userData = data?.me || {};
+
+  const userCreations = userData.userCreations;
+
   return (
     <>
       {!Auth.loggedIn() ? (
@@ -18,7 +26,7 @@ const UserCreations = () => {
           Creations!
         </h1>
       ) : null}
-      {Auth.loggedIn() ? (
+      {Auth.loggedIn() && userData ? (
         <>
           <h1>This is the Users Page!</h1>
           <Button
@@ -28,8 +36,24 @@ const UserCreations = () => {
           >
             Create New Creation
           </Button>
-          <div>
-            This is where all the user's saved creations are going to go.
+
+          <div className="creation-list">
+            <Container>
+              {userCreations &&
+                userCreations.map((creation) => (
+                  <div key={creation._id} className="card mb-3">
+                    <div className="card-header">
+                      <h3>{creation.creationTitle}</h3>
+                      {creation.username} created on {creation.createdAt}
+                    </div>
+                    <div className="card-body">
+                      <p>{creation.ingredients}</p>
+                      <p>{creation.creationDescription}</p>
+                      <p>{creation.directions}</p>
+                    </div>
+                  </div>
+                ))}
+            </Container>
           </div>
         </>
       ) : null}

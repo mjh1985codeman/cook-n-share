@@ -6,8 +6,9 @@ export const GET_ME = gql`
       _id
       username
       email
-      creationCount
       userCreations {
+        _id
+        username
         creationTitle
         ingredients
         creationDescription
@@ -15,6 +16,35 @@ export const GET_ME = gql`
         createdAt
       }
       savedCreations {
+        _id
+        username
+        creationTitle
+        ingredients
+        creationDescription
+        directions
+        createdAt
+      }
+    }
+  }
+`;
+
+export const QUERY_ME_BASIC = gql`
+  {
+    me {
+      _id
+      username
+      email
+    }
+  }
+`;
+
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      userCreations {
+        _id
         creationTitle
         ingredients
         creationDescription
