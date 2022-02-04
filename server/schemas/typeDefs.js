@@ -11,7 +11,6 @@ const typeDefs = gql`
 
   type Creation {
     _id: ID!
-    username: String
     creationTitle: String
     ingredients: String
     creationDescription: String
@@ -21,7 +20,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    creations(username: String): [Creation]
+    creations: [Creation]
     user(username: String!): User
     users: [User]
     creation(_id: ID!): Creation
@@ -36,7 +35,6 @@ const typeDefs = gql`
     login(username: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addCreation(
-      username: String!
       creationTitle: String!
       ingredients: String!
       creationDescription: String!
@@ -48,13 +46,12 @@ const typeDefs = gql`
 module.exports = typeDefs;
 
 //Mutation Example:
-// mutation addCreation($username: String!, $creationTitle: String!, $ingredients: String!, $creationDescription: String!, $directions: String!) {
-//   addCreation(username: $username, creationTitle: $creationTitle, ingredients: $ingredients, creationDescription: $creationDescription, directions: $directions ) {
+// mutation addCreation($creationTitle: String!, $ingredients: String!, $creationDescription: String!, $directions: String!) {
+//   addCreation(creationTitle: $creationTitle, ingredients: $ingredients, creationDescription: $creationDescription, directions: $directions ) {
 //     _id
 //     creationTitle
 //     ingredients
 //     createdAt
-//     username
 //     creationDescription
 //     directions
 //   }
@@ -62,7 +59,6 @@ module.exports = typeDefs;
 
 // Query Variables:
 // {
-//   "username": "mhodges",
 //   "creationTitle": "Turkey Burgers",
 //   "ingredients": "Turkey, Mayo, Cheese",
 //   "creationDescription": "Grill it and Eat it",

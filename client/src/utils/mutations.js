@@ -46,7 +46,12 @@ export const ADD_CREATION = gql`
     $creationDescription: String!
     $directions: String!
   ) {
-    addCreation(creationText: $creationText) {
+    addCreation(
+      creationTitle: $creationTitle
+      ingredients: $ingredients
+      creationDescription: $creationDescription
+      directions: $directions
+    ) {
       creationTitle
       ingredients
       creationDescription

@@ -10,8 +10,20 @@ Create a Creation (Recipe)
  */
 import React from "react";
 import Auth from "../utils/auth";
+import { useMutation } from "@apollo/client";
+import { ADD_CREATION } from "../utils/mutations";
+import { GET_ME } from "../utils/queries";
 
 const NewCreation = () => {
+  let titleInput;
+  let ingInput;
+  let descInput;
+  let directions;
+  const [addCreation, { data, loading, error }] = useMutation(ADD_CREATION);
+
+  if (loading) return "Submitting...";
+  if (error) return `Submission error! ${error.message}`;
+
   return (
     <>
       {!Auth.loggedIn() ? (
@@ -21,9 +33,52 @@ const NewCreation = () => {
       ) : null}
       {/*The user must be logged in order to create something*/}
       {Auth.loggedIn() ? (
-        <h1>This is where I'm going to create a new Creation!</h1>
+        <>
+          <h1>This is where I'm going to create a new Creation!</h1>
+          <div>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                addCreation({
+                  variables: {
+                    creationTitle: titleInput.value,
+                    ingredients: ingInput.value,
+                    creationDescription: descInput.value,
+                    directions: directions.value,
+                  },
+                });
+                titleInput.value = "";
+              }}
+            >
+              <h3>Creation Title</h3>
+              <input
+                ref={(node) => {
+                  titleInput = node;
+                }}
+              />
+              <h3>Ingredients</h3>
+              <input
+                ref={(node) => {
+                  ingInput = node;
+                }}
+              />
+              <h3>Creation Description</h3>
+              <input
+                ref={(node) => {
+                  descInput = node;
+                }}
+              />
+              <h3>Directions</h3>
+              <input
+                ref={(node) => {
+                  directions = node;
+                }}
+              />
+              <button type="submit">Create Creation</button>
+            </form>
+          </div>
+        </>
       ) : null}
-      {/*Conditionally Rendered if user is NOT logged in*/}
     </>
   );
 };

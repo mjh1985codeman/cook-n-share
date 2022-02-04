@@ -8,7 +8,6 @@ export const GET_ME = gql`
       email
       userCreations {
         _id
-        username
         creationTitle
         ingredients
         creationDescription
@@ -17,7 +16,6 @@ export const GET_ME = gql`
       }
       savedCreations {
         _id
-        username
         creationTitle
         ingredients
         creationDescription
@@ -56,10 +54,9 @@ export const QUERY_USER = gql`
 `;
 
 export const GET_CREATIONS = gql`
-  query creations($username: String) {
-    creations(username: $username) {
+  query creations {
+    creations {
       _id
-      username
       creationTitle
       ingredients
       creationDescription

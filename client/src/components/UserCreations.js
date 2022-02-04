@@ -26,6 +26,7 @@ const UserCreations = () => {
           Creations!
         </h1>
       ) : null}
+      {!Auth.loggedIn() && !userData ? <h1>Loading. . .</h1> : null}
       {Auth.loggedIn() && userData ? (
         <>
           <h1>This is the Users Page!</h1>

@@ -3,10 +3,6 @@ const dateFormat = require("../utils/dateFormat");
 
 const creationSchema = new Schema(
   {
-    username: {
-      type: String,
-      required: true,
-    },
     creationTitle: {
       type: String,
       required: true,
