@@ -58,8 +58,8 @@ body {
 
 .creation-list {
   margin: 1vh;
-  
   font-size: 1.3rem;
+  display: inline;
 
 }
 

@@ -29,7 +29,7 @@ const UserCreations = () => {
       {!Auth.loggedIn() && !userData ? <h1>Loading. . .</h1> : null}
       {Auth.loggedIn() && userData ? (
         <>
-          <h1>This is the Users Page!</h1>
+          <h1>Hey There {userData.username}</h1>
           <Button
             variant="contained"
             component={Link}

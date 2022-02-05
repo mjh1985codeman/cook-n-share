@@ -29,6 +29,14 @@ const resolvers = {
       const params = username ? { username } : {};
       return Creation.find(params).sort({ createdAt: -1 });
     },
+
+    // Get all users
+    users: async () => {
+      return User.find()
+        .select("-__v -password")
+        .populate("userCreations")
+        .populate("savedCreations");
+    },
   },
 
   Mutation: {

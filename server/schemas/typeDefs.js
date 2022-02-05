@@ -11,11 +11,11 @@ const typeDefs = gql`
 
   type Creation {
     _id: ID!
-    creationTitle: String
-    ingredients: String
-    creationDescription: String
-    directions: String
-    createdAt: String
+    creationTitle: String!
+    ingredients: String!
+    creationDescription: String!
+    directions: String!
+    createdAt: String!
   }
 
   type Query {
