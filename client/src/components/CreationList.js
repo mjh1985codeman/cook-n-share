@@ -1,11 +1,5 @@
-import React, { useContext } from "react";
-import {
-  Container,
-  useAccordionButton,
-  AccordionContext,
-  Accordion,
-  Card,
-} from "react-bootstrap";
+import React from "react";
+import { Container } from "react-bootstrap";
 
 const CreationList = ({ creations }) => {
   if (!creations.length) {

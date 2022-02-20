@@ -15,6 +15,7 @@ import { Container } from "react-bootstrap";
 const UserCreations = () => {
   const { data } = useQuery(GET_ME);
   const userData = data?.me || {};
+  console.log("userCreations userData: ", userData);
 
   const userCreations = userData.userCreations;
 

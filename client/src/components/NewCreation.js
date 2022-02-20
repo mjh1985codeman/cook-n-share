@@ -9,17 +9,18 @@ Create a Creation (Recipe)
 
  */
 import React from "react";
-import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
+//import the useMutation and useQuery apollo hooks.
 import { ADD_CREATION } from "../utils/mutations";
-import { GET_ME } from "../utils/queries";
+import Auth from "../utils/auth";
 
 const NewCreation = () => {
+  const [addCreation, { loading, error }] = useMutation(ADD_CREATION);
+
   let titleInput;
   let ingInput;
   let descInput;
   let directions;
-  const [addCreation, { data, loading, error }] = useMutation(ADD_CREATION);
 
   if (loading) return "Submitting...";
   if (error) return `Submission error! ${error.message}`;
@@ -31,6 +32,7 @@ const NewCreation = () => {
           Come on now. . .Login or Sign up in order to create something awesome!
         </h1>
       ) : null}
+      {!Auth.loggedIn() ? <h1>Loading. . .</h1> : null}
       {/*The user must be logged in order to create something*/}
       {Auth.loggedIn() ? (
         <>
