@@ -13,7 +13,9 @@ const Browse = () => {
 
   //  get the creation data out of the query's response, because every GraphQL response comes in a big data object.
   //  In this case, we'll need to access data.creations
-  const creations = data?.creations || [];
+  console.log('data: ' , data);
+  const creations = data?.allCreations || [];
+  console.log('creations: ' , creations);
 
   return (
     <>

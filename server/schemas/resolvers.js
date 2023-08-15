@@ -9,6 +9,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
+          .populate("username")
           .populate("userCreations")
           .populate("savedCreations");
         return userData;
@@ -25,15 +26,17 @@ const resolvers = {
     //Here, we pass in the parent as more of a placeholder parameter. It won't be used, but we need something in that first parameter's
     //spot so we can access the username argument from the second parameter. We use a ternary operator to check if username exists.
     //If it does, we set params to an object with a username key set to that value. If it doesn't, we simply return an empty object.
-    creations: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Creation.find(params).sort({ createdAt: -1 });
+    allCreations: async (parent, args) => {
+      const creations = await Creation.find();
+      console.log('creations: ' , creations);
+      return creations;
     },
 
     // Get all users
     users: async () => {
       return User.find()
         .select("-__v -password")
+        .populate("username")
         .populate("userCreations")
         .populate("savedCreations");
     },
@@ -68,7 +71,6 @@ const resolvers = {
       if (context.user) {
         const creation = await Creation.create({
           ...args,
-          username: context.user.username,
         });
 
         await User.findByIdAndUpdate(

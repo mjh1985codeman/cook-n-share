@@ -14,7 +14,7 @@ const CreationList = ({ creations }) => {
             <div key={creation._id} className="card mb-3">
               <div className="card-header">
                 <h3>{creation.creationTitle}</h3>
-                {creation.username} created on {creation.createdAt}
+                  created on {creation.createdAt}
               </div>
               <div className="card-body">
                 <p>{creation.ingredients}</p>

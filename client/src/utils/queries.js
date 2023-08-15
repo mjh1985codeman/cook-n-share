@@ -64,10 +64,9 @@ export const QUERY_USERS = gql`
 `;
 
 export const GET_CREATIONS = gql`
-  query creations {
-    creations {
+  query allCreations {
+    allCreations {
       _id
-      username
       creationTitle
       ingredients
       creationDescription

@@ -11,7 +11,6 @@ const typeDefs = gql`
 
   type Creation {
     _id: ID!
-    username: String!
     creationTitle: String!
     ingredients: String!
     creationDescription: String!
@@ -21,7 +20,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    creations: [Creation]
+    allCreations: [Creation]
     user(username: String!): User
     users: [User]
     creation(_id: ID!): Creation
@@ -36,7 +35,6 @@ const typeDefs = gql`
     login(username: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addCreation(
-      username: String!
       creationTitle: String!
       ingredients: String!
       creationDescription: String!
